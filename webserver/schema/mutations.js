@@ -8,7 +8,7 @@ const updateTransaction = async req => {
   try {
 		const id = req.params === undefined ? req._id : req.params._id
 		const updateData = req.params === undefined ? req : req.params
-		const update = await TransactionModel.findByIdAndRemove(id, updateData, { new: true })
+		const update = await TransactionModel.findByIdAndUpdate(id, updateData, { new: true })
 		return update
 	} catch (err) {
 		throw err;
@@ -50,7 +50,7 @@ const mutation = new GraphQLObjectType({
 				_id: { type: new GraphQLNonNull(GraphQLID) },
 				user_id: { type:(GraphQLString) },
 				description: { type:(GraphQLString) },
-        merchant_id: { type: GraphQLString },
+        		merchant_id: { type: GraphQLString },
 				debit: { type:(GraphQLBoolean) },
 				credit: { type:(GraphQLBoolean) },
 				amount: { type:(GraphQLFloat) }

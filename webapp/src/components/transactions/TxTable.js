@@ -26,16 +26,16 @@ export function TxTable ({ data }) {
         </tr>
         {
           data.map(tx => {
-            const { id, user_id: userId, description, merchant_id: merchantId, debit, credit, amount } = tx
+            const { _id, user_id: userId, description, merchant_id: merchantId, debit, credit, amount } = tx
             return (
-              <tr data-testid={`transaction-${id}`} key={`transaction-${id}`}>
-                <td data-testid={makeDataTestId(id, 'id')}>{id}</td>
-                <td data-testid={makeDataTestId(id, 'userId')}>{userId}</td>
-                <td data-testid={makeDataTestId(id, 'description')}>{description}</td>
-                <td data-testid={makeDataTestId(id, 'merchant')}>{merchantId}</td>
-                <td data-testid={makeDataTestId(id, 'debit')}>{debit ? 'Yes' : 'No'}</td>
-                <td data-testid={makeDataTestId(id, 'credit')}>{credit ? 'Yes' : 'No'}</td>
-                <td data-testid={makeDataTestId(id, 'amount')}>${amount}</td>
+              <tr data-testid={`transaction-${_id}`} key={`transaction-${_id}`}>
+                <td data-testid={makeDataTestId(_id, '_id')}>{_id}</td>
+                <td data-testid={makeDataTestId(_id, 'userId')}>{userId}</td>
+                <td data-testid={makeDataTestId(_id, 'description')}>{description}</td>
+                <td data-testid={makeDataTestId(_id, 'merchant')}>{merchantId}</td>
+                <td data-testid={makeDataTestId(_id, 'debit')}>{debit ? 'Yes' : 'No'}</td>
+                <td data-testid={makeDataTestId(_id, 'credit')}>{credit ? 'Yes' : 'No'}</td>
+                <td data-testid={makeDataTestId(_id, 'amount')}>${amount}</td>
               </tr>
             )
           })
@@ -48,7 +48,7 @@ export function TxTable ({ data }) {
 
 TxTable.propTypes = {
   data: arrayOf(shape({
-    id: string,
+    _id: string,
     user_id: string,
     description: string,
     merchant_id: string,

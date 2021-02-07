@@ -1,6 +1,6 @@
 query GetTransactions {
     transactions {
-        id
+        _id
         user_id
         description
         merchant_id
