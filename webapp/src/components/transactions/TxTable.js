@@ -6,6 +6,7 @@ const styles = css`
  .header {
    font-weight: bold;
  }
+ 
 `
 
 const makeDataTestId = (transactionId, fieldName) => `transaction-${transactionId}-${fieldName}`
@@ -15,7 +16,7 @@ export function TxTable ({ data }) {
     <table css={styles}>
       <tbody>
         <tr className='header'>
-          <td >ID</td>
+          <td className='row' >ID</td>
           <td >User ID</td>
           <td >Description</td>
           <td >Merchant ID</td>
@@ -32,9 +33,9 @@ export function TxTable ({ data }) {
                 <td data-testid={makeDataTestId(id, 'userId')}>{userId}</td>
                 <td data-testid={makeDataTestId(id, 'description')}>{description}</td>
                 <td data-testid={makeDataTestId(id, 'merchant')}>{merchantId}</td>
-                <td data-testid={makeDataTestId(id, 'debit')}>{debit}</td>
-                <td data-testid={makeDataTestId(id, 'credit')}>{credit}</td>
-                <td data-testid={makeDataTestId(id, 'amount')}>{amount}</td>
+                <td data-testid={makeDataTestId(id, 'debit')}>{debit ? 'Yes' : 'No'}</td>
+                <td data-testid={makeDataTestId(id, 'credit')}>{credit ? 'Yes' : 'No'}</td>
+                <td data-testid={makeDataTestId(id, 'amount')}>${amount}</td>
               </tr>
             )
           })

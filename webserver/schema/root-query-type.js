@@ -15,7 +15,7 @@ const RootQuery = new GraphQLObjectType({
     transaction: {
       type: TransactionType,
       args: {
-        id: { type: GraphQLString }
+        _id: { type: GraphQLString }
       },
       resolve (parentValue, args) {
         return Transactions.findOne(args.id)

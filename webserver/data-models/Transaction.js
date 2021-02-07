@@ -1,7 +1,7 @@
 const { model, Schema, SchemaTypes } = require('mongoose')
 
 const TransactionSchema = new Schema({
-  id: { type: SchemaTypes.ObjectId },
+  _id: { type: SchemaTypes.ObjectId },
   user_id: { type: String, default: null },
   amount: { type: Number, default: null },
   credit: { type: Boolean, default: null },
